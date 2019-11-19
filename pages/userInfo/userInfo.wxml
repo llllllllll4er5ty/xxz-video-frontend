@@ -1,0 +1,44 @@
+<view>
+
+  <view class='container'>
+
+    <block wx:if="{{isMe}}">
+      <image src="{{faceUrl}}" class="face" bindtap='changeFace'></image>
+    </block>
+    <block wx:if="{{!isMe}}">
+      <image src="{{faceUrl}}" class="face"></image>
+    </block>
+    <label class='nickname'>{{nickname}}</label>
+
+    <button size='mini' class='primary' bindtap='uploadVideo' hidden='{{!isMe}}'> 上传作品</button>
+    <button size='mini' type='' class='logout' bindtap='logout' hidden='{{!isMe}}'>注销</button>
+
+    <block wx:if="{{!isMe}}">
+      <block wx:if="{{isFollow}}">
+        <button size='mini' type='' class='follow' data-follow-type='0' bindtap='followMe'>已关注</button>
+      </block>
+      <block wx:if="{{!isFollow}}">
+        <button size='mini' type='primary' class='follow' data-follow-type='1' bindtap='followMe'>关注我</button>
+      </block>
+
+    </block>
+
+    <view class='container-row'>
+      <label class='info-items'>{{fansCounts}} 粉丝</label>
+      <label class='info-items'>{{followsCounts}} 关注</label>
+      <label class='info-items'>{{receiveLikeCounts}} 获赞</label>
+    </view>
+  </view>
+
+</view>
+
+<view class="line"></view>
+
+<!-- 视频列表 -->
+<view>
+  <block wx:for="{{videoList}}">
+    <block >
+      <video class="videoParent" src="{{baseStaticUrl}}{{item.videoPath}}"></video>
+    </block>
+  </block>
+</view>

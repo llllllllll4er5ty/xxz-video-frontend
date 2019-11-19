@@ -1,0 +1,16 @@
+  <view wx:for="{{videoList}}" class="item-container">  
+
+     <view style='width:{{screenWidth}}px;height:210px;' class='back-img'> 
+        <image src="{{baseStaticUrl}}{{item.coverPath}}" style='width:{{screenWidth}}px;height:210px;' mode="aspectFit" bindtap='showVideoInfo' data-array-index='{{index}}'></image>
+     </view> 
+
+
+    <view class="desc">
+        <view class="faceName">
+            <image class='myface' src="{{baseStaticUrl}}{{item.userEntity.avatar}}"></image>
+            <view class="nickname">{{item.userEntity.name}}</view>
+        </view>
+    </view>
+
+
+  </view>  
